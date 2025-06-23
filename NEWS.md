@@ -1,4 +1,7 @@
-# preproc.iquizoo (development version)
+# preproc.iquizoo 2.8.3
+
+* Fix a deprecation warning after tidyselect 1.2.0.
+* Other internal upkeep ([#89](https://github.com/iquizoo/preproc.iquizoo/issues/89)).
 
 # preproc.iquizoo 2.8.2
 
