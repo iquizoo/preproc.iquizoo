@@ -38,7 +38,8 @@ reinf <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
         .data$set == "sep",
         if_else(
           .data[[.input$name_cresp]] == .extra$type_approach,
-          "approach", "avoid"
+          "approach",
+          "avoid"
         ),
         .data$set
       )

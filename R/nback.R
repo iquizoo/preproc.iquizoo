@@ -93,13 +93,15 @@ dualnback <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
     vctrs::vec_restore(data)
 }
 
-.calc_nback <- function(data,
-                        by,
-                        name_type = "type",
-                        name_acc = "acc",
-                        name_rt = "rt",
-                        type_filler = "filler",
-                        type_signal = "same") {
+.calc_nback <- function(
+  data,
+  by,
+  name_type = "type",
+  name_acc = "acc",
+  name_rt = "rt",
+  type_filler = "filler",
+  type_signal = "same"
+) {
   data_cor <- data |>
     # filler trials should be ignored
     filter(!.data[[name_type]] == type_filler)
@@ -123,8 +125,11 @@ dualnback <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
       all_of(
         c(
           by,
-          "pc", "mrt",
-          "ies", "rcs", "lisas",
+          "pc",
+          "mrt",
+          "ies",
+          "rcs",
+          "lisas",
           "dprime"
         )
       )

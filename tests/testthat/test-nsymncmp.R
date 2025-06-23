@@ -1,3 +1,4 @@
+# fmt: skip
 config <- tibble::tribble(
   ~bigsetcount, ~smallsetcount, ~pc,
   12, 6, 0.9,

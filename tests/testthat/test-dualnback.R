@@ -14,7 +14,8 @@ data <- withr::with_seed(
       acc = sample(c(0, 1), n(), replace = TRUE),
       rt = if_else(
         type == "filler" | xor(type == "same", acc == 1),
-        0, rexp(n(), 0.001)
+        0,
+        rexp(n(), 0.001)
       )
     ) |>
     pivot_wider(

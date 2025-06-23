@@ -36,12 +36,14 @@ data <- withr::with_seed(
       acc = ifelse(
         type == "go",
         sample(
-          c(-1, 0, 1), n(),
+          c(-1, 0, 1),
+          n(),
           prob = c(0.05, 0.25, 0.7),
           replace = TRUE
         ),
         sample(
-          c(0, 1), n(),
+          c(0, 1),
+          n(),
           replace = TRUE
         )
       )
@@ -51,7 +53,8 @@ data <- withr::with_seed(
       ~ .x |>
         mutate(
           ssd = .prepare_ssd(
-            acc, .y$type
+            acc,
+            .y$type
           )
         )
     ) |>
@@ -59,7 +62,8 @@ data <- withr::with_seed(
     mutate(
       rt = ifelse(
         (acc == 1 & type != "go") | (acc == -1 & type == "go"),
-        0, runif(n(), 150, 1000)
+        0,
+        runif(n(), 150, 1000)
       )
     )
 )

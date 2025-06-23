@@ -26,11 +26,15 @@
 #'   for more details.
 #' @return A [data.frame] contains the calculated indices.
 #' @export
-preproc_data <- function(data, fn, ...,
-                         col_raw_parsed = "raw_parsed",
-                         pivot_results = TRUE,
-                         pivot_names_to = "index_name",
-                         pivot_values_to = "score") {
+preproc_data <- function(
+  data,
+  fn,
+  ...,
+  col_raw_parsed = "raw_parsed",
+  pivot_results = TRUE,
+  pivot_names_to = "index_name",
+  pivot_values_to = "score"
+) {
   data <- filter(data, !purrr::map_lgl(.data[[col_raw_parsed]], is_empty))
   if (nrow(data) == 0) {
     warn("No non-empty data found.")

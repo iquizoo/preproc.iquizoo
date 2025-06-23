@@ -24,7 +24,8 @@ driving <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
         convert_numeric = FALSE
       ),
       still_dur_yellow = purrr::map2_dbl(
-        .data$still_dur, .data$still_light,
+        .data$still_dur,
+        .data$still_light,
         ~ ifelse(
           length(.x) == length(.y),
           sum(.x[.y == .extra$light_yellow]),

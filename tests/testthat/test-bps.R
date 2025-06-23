@@ -24,7 +24,8 @@ data <- withr::with_seed(
         phase == "learn" ~ NA_integer_,
         (type == "target" & resp == "old") |
           (type == "foil" & resp == "new") |
-          (type == "lure" & resp == "similar") ~ 1L,
+          (type == "lure" & resp == "similar") ~
+          1L,
         TRUE ~ 0L
       ),
       rt = rexp(n(), 0.001)

@@ -71,8 +71,14 @@ calc_numerosity <- function(data, name_bigset, name_smallset, name_acc) {
 #' @param seed Random seed. Default is 1 so that results can be reproduced.
 #' @return A [list()] with structure the same as [optim()].
 #' @export
-fit_numerosity <- function(data, name_bigset, name_smallset, name_acc,
-                           n_fit = 5, seed = 1) {
+fit_numerosity <- function(
+  data,
+  name_bigset,
+  name_smallset,
+  name_acc,
+  n_fit = 5,
+  seed = 1
+) {
   set.seed(seed)
   b <- data[[name_bigset]]
   s <- data[[name_smallset]]
@@ -97,9 +103,12 @@ fit_numerosity <- function(data, name_bigset, name_smallset, name_acc,
       return(list(par = c(w = NA_real_), convergence = 1))
     }
     fit <- stats::optim(
-      init, ll_numerosity,
+      init,
+      ll_numerosity,
       method = "L-BFGS-B",
-      b = b, s = s, acc = acc,
+      b = b,
+      s = s,
+      acc = acc,
       lower = 0
     )
     if (fit[["value"]] < min_objective) {
