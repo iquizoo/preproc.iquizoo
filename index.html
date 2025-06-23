@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Utility Functions for Data Processing of Iquizoo Games • preproc.iquizoo</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Utility Functions for Data Processing of Iquizoo Games">
 <meta name="description" content="Several couples of games are developed by IQUIZOO.COM. Here are the functions used to do data processing for all of those games.">
 <meta property="og:description" content="Several couples of games are developed by IQUIZOO.COM. Here are the functions used to do data processing for all of those games.">
@@ -18,11 +18,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">preproc.iquizoo</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.8.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.8.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,15 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/psychelzh/preproc.iquizoo/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/iquizoo/preproc.iquizoo/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -63,15 +71,15 @@
 <p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"psychelzh/preproc.iquizoo@develop"</span><span class="op">)</span></span></code></pre></div>
-<p>Or you can install the stable version from <a href="https://psychelzh.r-universe.dev/" class="external-link">r-universe</a> with:</p>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"iquizoo/preproc.iquizoo@develop"</span><span class="op">)</span></span></code></pre></div>
+<p>Or you can install the stable version from <a href="https://iquizoo.r-universe.dev/" class="external-link">r-universe</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"preproc.iquizoo"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span>, <span class="st">"https://psychelzh.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"preproc.iquizoo"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span>, <span class="st">"https://iquizoo.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>This package is best used in company with <a href="https://github.com/psychelzh/tarflow.iquizoo" class="external-link">tarflow.iquizoo</a> package. Read the <a href="https://psychelzh.github.io/tarflow.iquizoo/" class="external-link">documentation</a> there.</p>
+<p>This package is best used in company with <a href="https://github.com/iquizoo/tarflow.iquizoo" class="external-link">tarflow.iquizoo</a> package. Read the <a href="https://iquizoo.github.io/tarflow.iquizoo/" class="external-link">documentation</a> there.</p>
 </div>
 <div class="section level2">
 <h2 id="advanced">Advanced<a class="anchor" aria-label="anchor" href="#advanced"></a>
@@ -88,8 +96,8 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/psychelzh/preproc.iquizoo/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/psychelzh/preproc.iquizoo/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/iquizoo/preproc.iquizoo/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/iquizoo/preproc.iquizoo/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -112,16 +120,16 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Liang Zhang <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-9041-1150" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Liang Zhang <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-9041-1150" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/psychelzh/preproc.iquizoo/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/psychelzh/preproc.iquizoo/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/psychelzh/preproc.iquizoo?branch=main" class="external-link"><img src="https://codecov.io/gh/psychelzh/preproc.iquizoo/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/psychelzh/preproc.iquizoo/actions" class="external-link"><img src="https://github.com/psychelzh/preproc.iquizoo/workflows/lint/badge.svg" alt="lint"></a></li>
+<li><a href="https://github.com/iquizoo/preproc.iquizoo/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/iquizoo/preproc.iquizoo/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/iquizoo/preproc.iquizoo" class="external-link"><img src="https://codecov.io/gh/iquizoo/preproc.iquizoo/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/iquizoo/preproc.iquizoo/actions" class="external-link"><img src="https://github.com/iquizoo/preproc.iquizoo/workflows/lint/badge.svg" alt="lint"></a></li>
 </ul>
 </div>
 
@@ -134,7 +142,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
