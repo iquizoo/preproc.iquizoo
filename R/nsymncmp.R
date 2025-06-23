@@ -129,5 +129,5 @@ ll_numerosity <- function(pars, b, s, acc) {
     stats::pnorm(0, means, sds, lower.tail = FALSE, log.p = TRUE)
   )
 
-  return(ifelse(any(!is.finite(dens)), 1e6, -sum(dens)))
+  ifelse(any(!is.finite(dens)), 1e6, -sum(dens))
 }

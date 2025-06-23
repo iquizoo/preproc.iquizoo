@@ -5,10 +5,10 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/psychelzh/preproc.iquizoo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/psychelzh/preproc.iquizoo/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/iquizoo/preproc.iquizoo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/iquizoo/preproc.iquizoo/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/psychelzh/preproc.iquizoo/graph/badge.svg)](https://app.codecov.io/gh/psychelzh/preproc.iquizoo)
-[![lint](https://github.com/psychelzh/preproc.iquizoo/workflows/lint/badge.svg)](https://github.com/psychelzh/preproc.iquizoo/actions)
+coverage](https://codecov.io/gh/iquizoo/preproc.iquizoo/graph/badge.svg)](https://app.codecov.io/gh/iquizoo/preproc.iquizoo)
+[![lint](https://github.com/iquizoo/preproc.iquizoo/workflows/lint/badge.svg)](https://github.com/iquizoo/preproc.iquizoo/actions)
 <!-- badges: end -->
 
 The goal of preproc.iquizoo is to provide pre-processing functions for
@@ -28,21 +28,21 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("psychelzh/preproc.iquizoo@develop")
+devtools::install_github("iquizoo/preproc.iquizoo@develop")
 ```
 
 Or you can install the stable version from
-[r-universe](https://psychelzh.r-universe.dev/) with:
+[r-universe](https://iquizoo.r-universe.dev/) with:
 
 ``` r
-install.packages("preproc.iquizoo", repos = c(getOption("repos"), "https://psychelzh.r-universe.dev"))
+install.packages("preproc.iquizoo", repos = c(getOption("repos"), "https://iquizoo.r-universe.dev"))
 ```
 
 ## Usage
 
 This package is best used in company with
-[tarflow.iquizoo](https://github.com/psychelzh/tarflow.iquizoo) package.
-Read the [documentation](https://psychelzh.github.io/tarflow.iquizoo/)
+[tarflow.iquizoo](https://github.com/iquizoo/tarflow.iquizoo) package.
+Read the [documentation](https://iquizoo.github.io/tarflow.iquizoo/)
 there.
 
 ## Advanced
