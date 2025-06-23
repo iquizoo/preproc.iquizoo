@@ -38,8 +38,12 @@ crt <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
       all_of(
         c(
           .by,
-          "nc", "mrt", "rtsd",
-          "ies", "rcs", "lisas"
+          "nc",
+          "mrt",
+          "rtsd",
+          "ies",
+          "rcs",
+          "lisas"
         )
       )
     ) |>

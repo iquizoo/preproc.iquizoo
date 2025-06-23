@@ -1,3 +1,8 @@
+# preproc.iquizoo 2.8.3
+
+* Fix a deprecation warning after tidyselect 1.2.0.
+* Other internal upkeep ([#89](https://github.com/iquizoo/preproc.iquizoo/issues/89)).
+
 # preproc.iquizoo 2.8.2
 
 * Enhance internal function of `calc_sdt()`. This function could be exported in future.
@@ -12,13 +17,13 @@
 
 ## Breaking Changes
 
-* Removed `wrangle_data()` and now there is `tarflow.iquizoo::parse_data()` to replace it ([#86](https://github.com/psychelzh/preproc.iquizoo/issues/86)).
+* Removed `wrangle_data()` and now there is `tarflow.iquizoo::parse_data()` to replace it ([#86](https://github.com/iquizoo/preproc.iquizoo/issues/86)).
 
 # preproc.iquizoo 2.7.0
 
 ## Breaking Changes
 
-* Now case conversion is moved from `wrangle_data()` to `preproc_data()` ([#85](https://github.com/psychelzh/preproc.iquizoo/issues/85)).
+* Now case conversion is moved from `wrangle_data()` to `preproc_data()` ([#85](https://github.com/iquizoo/preproc.iquizoo/issues/85)).
 
 ## Enhancements
 
@@ -66,7 +71,7 @@
 
 ## Breaking Changes
 
-* Ensure the number of reversals in `calc_staircase_wetherill()` to be even. Odd number of reversals will be automatically adjusted to even number by removing the first reversal from the condition with larger number of reversals ([#75](https://github.com/psychelzh/preproc.iquizoo/issues/75)).
+* Ensure the number of reversals in `calc_staircase_wetherill()` to be even. Odd number of reversals will be automatically adjusted to even number by removing the first reversal from the condition with larger number of reversals ([#75](https://github.com/iquizoo/preproc.iquizoo/issues/75)).
 
 # preproc.iquizoo 2.5.0
 

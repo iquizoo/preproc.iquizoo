@@ -26,7 +26,8 @@ racer <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
       data,
       mean_score = sum(
         .data[[.input$name_trialdur]] * .data[[.input$name_score]]
-      ) / sum(.data[[.input$name_trialdur]]),
+      ) /
+        sum(.data[[.input$name_trialdur]]),
       .by = all_of(.by)
     ),
     calc_sdt(

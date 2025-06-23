@@ -1,5 +1,6 @@
 data <- withr::with_seed(
   1,
+  # fmt: skip
   expand_grid(
     id = 1:2,
     tibble::tribble(

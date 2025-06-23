@@ -1,7 +1,11 @@
-prepare_level <- function(outcome, n_up, n_down,
-                          level_init = 2,
-                          level_step = 1,
-                          level_limits = NULL) {
+prepare_level <- function(
+  outcome,
+  n_up,
+  n_down,
+  level_init = 2,
+  level_step = 1,
+  level_limits = NULL
+) {
   level_limits <- level_limits %||% c(0, 16)
   out <- numeric(length(outcome))
   win_streak <- 0

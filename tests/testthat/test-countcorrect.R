@@ -18,7 +18,8 @@ data_chr_acc <- withr::with_seed(
     uncount(n, .id = "trial") |>
     mutate(
       acc = ifelse(
-        trial %% 2 == 0, NA,
+        trial %% 2 == 0,
+        NA,
         replicate(
           n(),
           sample(c(0, 1, 99), 3, replace = TRUE, prob = c(0.1, 0.85, 0.05)) |>

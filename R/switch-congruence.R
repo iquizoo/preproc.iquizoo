@@ -155,11 +155,19 @@ switchcost <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
 }
 
 # helper functions
-calc_cond_diff <- function(data, by, name_cond, values_cond, ...,
-                           name_acc = "acc", name_rt = "rt",
-                           type_effect = c("switch", "congruency")) {
+calc_cond_diff <- function(
+  data,
+  by,
+  name_cond,
+  values_cond,
+  ...,
+  name_acc = "acc",
+  name_rt = "rt",
+  type_effect = c("switch", "congruency")
+) {
   type_effect <- match.arg(type_effect)
-  labels_cond <- switch(type_effect,
+  labels_cond <- switch(
+    type_effect,
     `switch` = c("switch", "repeat"),
     `congruency` = c("inc", "con")
   )
@@ -195,13 +203,15 @@ calc_cond_diff <- function(data, by, name_cond, values_cond, ...,
     mutate(
       diff = if_else(
         .data$index_name %in% c("pc", "rcs"),
-        -diff, diff
+        -diff,
+        diff
       )
     ) |>
     pivot_wider(
       names_from = "index_name",
       values_from = "diff",
-      names_prefix = switch(type_effect,
+      names_prefix = switch(
+        type_effect,
         `switch` = "switch_cost_",
         `congruency` = "cong_eff_"
       )

@@ -32,7 +32,8 @@ cpt <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
       # remove rt from non-signal trials
       rt_cor = if_else(
         .data[[.input$name_type]] == .extra$type_signal,
-        .data[[.input$name_rt]], NA
+        .data[[.input$name_rt]],
+        NA
       )
     )
   merge(
@@ -55,8 +56,12 @@ cpt <- function(data, .by = NULL, .input = NULL, .extra = NULL) {
       all_of(
         c(
           .by,
-          "nc", "mrt", "rtsd",
-          "dprime", "commissions", "omissions"
+          "nc",
+          "mrt",
+          "rtsd",
+          "dprime",
+          "commissions",
+          "omissions"
         )
       )
     ) |>

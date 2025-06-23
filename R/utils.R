@@ -21,19 +21,28 @@
 #' @param rt_unit The unit of response time in `data`.
 #' @return A [tibble][tibble::tibble-package] contains the required scores.
 #' @keywords internal
-calc_spd_acc <- function(data, ...,
-                         by = NULL, name_acc = "acc", name_rt = "rt",
-                         rt_rm_out = TRUE, rt_unit = c("ms", "s")) {
+calc_spd_acc <- function(
+  data,
+  ...,
+  by = NULL,
+  name_acc = "acc",
+  name_rt = "rt",
+  rt_rm_out = TRUE,
+  rt_unit = c("ms", "s")
+) {
   check_dots_used()
   rt_unit <- match.arg(rt_unit)
   # set reaction time unit to seconds for better value range
-  if (rt_unit == "ms") data[[name_rt]] <- data[[name_rt]] / 1000
+  if (rt_unit == "ms") {
+    data[[name_rt]] <- data[[name_rt]] / 1000
+  }
   if (rt_rm_out) {
     data <- data |>
       mutate(
         "{name_rt}" := if_else(
           check_outliers_rt(.data[[name_rt]], ...),
-          NA, .data[[name_rt]]
+          NA,
+          .data[[name_rt]]
         ),
         .by = all_of(by)
       )
@@ -82,8 +91,14 @@ calc_spd_acc <- function(data, ...,
 #' @return A [tibble][tibble::tibble-package] contains sensitivity index and
 #'   bias (and other temporary measures).
 #' @keywords internal
-calc_sdt <- function(data, type_signal, ...,
-                     by = NULL, name_acc = "acc", name_type = "type") {
+calc_sdt <- function(
+  data,
+  type_signal,
+  ...,
+  by = NULL,
+  name_acc = "acc",
+  name_type = "type"
+) {
   check_dots_empty()
   if (!type_signal %in% data[[name_type]]) {
     abort("Signal type not found in data")
@@ -125,12 +140,7 @@ calc_sdt <- function(data, type_signal, ...,
       names_from = "type_fac",
       values_from = c("c", "e", "c_p", "e_p", "c_z", "e_z")
     ) |>
-    rename(
-      hit = .data$c_p_s,
-      fa = .data$e_p_n,
-      miss = .data$e_p_s,
-      cr = .data$c_p_n
-    ) |>
+    rename(hit = "c_p_s", fa = "e_p_n", miss = "e_p_s", cr = "c_p_n") |>
     mutate(
       dprime = .data$c_z_s - .data$e_z_n,
       c = -(.data$c_z_s + .data$e_z_n) / 2,
@@ -223,12 +233,15 @@ update_settings <- function(origin, updates) {
 #'   `"cutoff"` method, the default is `c(0.2, Inf)`.
 #' @return A logical vector of the detected outliers.
 #' @keywords internal
-check_outliers_rt <- function(x,
-                              method = c("transform", "z_score", "cutoff"),
-                              threshold = NULL) {
+check_outliers_rt <- function(
+  x,
+  method = c("transform", "z_score", "cutoff"),
+  threshold = NULL
+) {
   method <- match.arg(method)
   if (is.null(threshold)) {
-    threshold <- switch(method,
+    threshold <- switch(
+      method,
       cutoff = c(0.2, Inf), # assuming rt is in seconds
       transform = ,
       z_score = 2.5
@@ -239,7 +252,8 @@ check_outliers_rt <- function(x,
       scale(min(x, na.rm = TRUE), diff(range(x, na.rm = TRUE))) |>
       sqrt()
   }
-  switch(method,
+  switch(
+    method,
     cutoff = x < threshold[[1]] | x > threshold[[2]],
     transform = ,
     z_score = abs(scale(x)[, 1]) > threshold
