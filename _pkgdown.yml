@@ -1,6 +1,7 @@
-url: https://psychelzh.github.io/preproc.iquizoo
+url: https://iquizoo.github.io/preproc.iquizoo/
 template:
   bootstrap: 5
+  light-switch: true
 reference:
   - title: "High-level API for data pre-processing"
     desc: Typically you would like to call these two functions to invoke processing.

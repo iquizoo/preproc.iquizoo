@@ -8,9 +8,9 @@ Authors@R:
 Description: Several couples of games are developed by IQUIZOO.COM. Here
     are the functions used to do data processing for all of those games.
 License: MIT + file LICENSE
-URL: https://psychelzh.github.io/preproc.iquizoo/,
-    https://github.com/psychelzh/preproc.iquizoo
-BugReports: https://github.com/psychelzh/preproc.iquizoo/issues
+URL: https://iquizoo.github.io/preproc.iquizoo/,
+    https://github.com/iquizoo/preproc.iquizoo
+BugReports: https://github.com/iquizoo/preproc.iquizoo/issues
 Depends:
     R (>= 4.1.0)
 Imports:
@@ -32,6 +32,7 @@ Suggests:
     withr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
+Config/usethis/last-upkeep: 2025-06-21
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
