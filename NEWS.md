@@ -1,5 +1,8 @@
 # preproc.iquizoo (development version)
 
+* Fix a deprecation warning after tidyselect 1.2.0.
+* Other internal upkeep ([#89](https://github.com/iquizoo/preproc.iquizoo/issues/89)).
+
 # preproc.iquizoo 2.8.2
 
 * Enhance internal function of `calc_sdt()`. This function could be exported in future.
